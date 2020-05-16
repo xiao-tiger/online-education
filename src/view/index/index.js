@@ -6,7 +6,7 @@ import login from '../../store/action/login';
 
 
 function Index(props) {
-  console.log(props, 'index');
+  
   let {dispatch} = props;
   return (
     <div>

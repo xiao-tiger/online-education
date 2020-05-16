@@ -5,7 +5,7 @@ import LoginBox from './login'
 import '../../common/css/login.css'
 
 function Login(props) {
-  console.log(props, 'Login');
+ 
   return (
     <div>
       <div id="login_boxWrap">
