@@ -12,7 +12,7 @@ function Frame() {
   return (
     <div>
       <Header />
-      <Menu />
+      {/* <Menu /> */}
     </div>
   )
 }

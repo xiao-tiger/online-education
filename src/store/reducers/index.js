@@ -1,3 +1,4 @@
+import getUser from './login'
 
 function index(state={}, action) {
 
@@ -5,9 +6,9 @@ function index(state={}, action) {
 }
 
 
-
 export default {
-  index
+  index,
+  getUser
 }
 
 

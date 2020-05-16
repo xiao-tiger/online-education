@@ -6,14 +6,18 @@ import Frame from './common/component/Frame'
 
 import "./common/css/reset.css";
 import "./common/css/common.css";
+
 function App() {
   return (
     <BrowserRouter>
       <Frame>
+      </Frame>
+      <div>
         {
           <IndexRoute />
         }
-      </Frame>
+      </div>
+      
     </BrowserRouter>
   );
 }
