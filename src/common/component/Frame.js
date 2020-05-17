@@ -1,18 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import Header from './Header'
 import Menu from './Menu'
 
-// import '../css/reset.css'
-// import '../css/common.css'
-// import '../css/index.css'
 
-function Frame() {
-
+function Frame(props) {
+  let [showMenu, setShowMenu] = useState(false)
+  function changeMenu() {
+    setShowMenu(!showMenu)
+  }
   return (
+    // style={{display: showMenu?'block': 'none'}}
     <div>
-      <Header />
-      {/* <Menu /> */}
+      <Header changeMenu={changeMenu} />
+      <Menu showMenu={showMenu} />
+      <div id="main">
+        { props.children }
+      </div>
     </div>
   )
 }

@@ -159,6 +159,8 @@
   background: url("../images/menu.png") no-repeat;
   background-size: cover;
   z-index: 1;
+  /* transform: translateX(-4.5rem); */
+  transition: all .5s;
 }
 #menu a {
   display: block;

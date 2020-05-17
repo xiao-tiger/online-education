@@ -9,7 +9,7 @@ import isLogin from '../../store/action/isLogin'
 import logout from '../../store/action/logout'
 
 
-function Header() {
+function Header(props) {
   let history = useHistory();
   let location = useLocation();
   let dispatch = useDispatch();
@@ -26,7 +26,7 @@ function Header() {
 
   let path = location.pathname;
   let user = state.getUser;
-
+  let {changeMenu} = props;
   function getUser() {
     if(path == '/login') {
       return ''
@@ -52,25 +52,26 @@ function Header() {
   }
 
   return (
-    <div className="header">
-      <header id="header">
-        <nav className="menu">
-            {
-              path == '/login'? 
-              <a 
-                className="header-btn-left iconfont icon-back"
-                onClick={back}
-              ></a>: <a className="header-btn-left iconfont icon-hycaidan" href="javascript:;"></a>
-            }
-        </nav>
-        <h1 className="logo">miaov.com</h1>
-        
-        {/* 显示用户名，用户信息的 */}
-        {getUser()}
+    <header id="header">
+      <nav className="menu">
+          {
+            path == '/login'? 
+            <a 
+              className="header-btn-left iconfont icon-back"
+              onClick={back}
+            ></a>: 
+            <a 
+              className="header-btn-left iconfont icon-hycaidan"
+              onClick={changeMenu}
+            ></a>
+          }
+      </nav>
+      <h1 className="logo">miaov.com</h1>
+      
+      {/* 显示用户名，用户信息的 */}
+      {getUser()}
 
-      </header>
-    </div>
-
+    </header>
   )
 }
 

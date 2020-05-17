@@ -11,13 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <Frame>
+        <IndexRoute />
       </Frame>
-      <div>
-        {
-          <IndexRoute />
-        }
-      </div>
-      
     </BrowserRouter>
   );
 }

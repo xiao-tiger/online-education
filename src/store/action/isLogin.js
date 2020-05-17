@@ -11,7 +11,6 @@ function isLogin() {
           user: res.data.username
         })
       }
-      console.log(res, 'ha')
     })
   }
 }
@@ -19,9 +18,3 @@ function isLogin() {
 
 export default isLogin;
 
-// if(res.data.code === 0){
-//   dispatch({
-//       type: "LOGIN",
-//       user: res.data.username
-//   });
-// }
