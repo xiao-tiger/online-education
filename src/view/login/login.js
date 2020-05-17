@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 
 import login from '../../store/action/login';
-import http from '../../store/action/http';
 import {useBack} from '../../common/hook/index';
 
 function LoginBox(props) {
@@ -50,7 +49,8 @@ function LoginBox(props) {
               />
             </p>
             <p>
-              <input type="password"
+              <input 
+                type="password"
                 placeholder="请输入密码" 
                 value={password}
                 onChange={e => {
@@ -60,7 +60,7 @@ function LoginBox(props) {
             </p>
             <p className="clearfix">
               <input 
-                className="verifycode"
+                className="verifyCode"
                 type="text" 
                 placeholder="请输入验证码" 
                 value={vcode}
