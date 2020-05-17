@@ -13,6 +13,7 @@ function LoginBox(props) {
   
   let back = useBack(props.history);
   let dispatch = useDispatch();
+  let {setDeg} = props;
   
   function toLogin() {
     dispatch(login({
@@ -35,7 +36,7 @@ function LoginBox(props) {
       <div className="login_box">
         <figure className="user_img">
           <img src={require('../../common/images/user_img.png')} alt="" />
-          <figcaption>如有账号，请直接登录</figcaption>
+          <figcaption>没有账号，请直接注册</figcaption>
         </figure>
         <div className="login_form">
             <p>
@@ -86,7 +87,7 @@ function LoginBox(props) {
               className="form_btn"
               onClick={toLogin}
             >登录</button>
-            <p className="form_tip">没有帐号？<a href="#">立即注册</a></p>
+            <p className="form_tip">没有帐号？<a onClick={() => {setDeg(-180)}}>立即注册</a></p>
           </div>
         </div>
       </div>)

@@ -9,12 +9,17 @@ function Frame(props) {
   function changeMenu() {
     setShowMenu(!showMenu)
   }
+  function menuHide() {
+    setShowMenu(false)
+  }
   return (
-    // style={{display: showMenu?'block': 'none'}}
     <div>
       <Header changeMenu={changeMenu} />
       <Menu showMenu={showMenu} />
-      <div id="main">
+      <div
+        id="main"
+        onTouchStart={menuHide}
+      >
         { props.children }
       </div>
     </div>
