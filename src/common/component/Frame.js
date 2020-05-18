@@ -11,6 +11,7 @@ function Frame(props) {
   let [showMenu, setShowMenu] = useState(false);
   let inneH = useInnerHeight();
   let pageScroll = null;
+  let {pullUp, getData} = props;
 
   function changeMenu() {
     setShowMenu(!showMenu)
@@ -21,12 +22,29 @@ function Frame(props) {
 
   let wrap = useRef(null);
   useEffect(() => {
-    pageScroll = new BScroll(wrap.current)
-  }, [])
+    pageScroll = new BScroll(wrap.current, {
+      // better-scroll默认禁止了一些标签的默认行为
+      preventDefaultException: {
+        tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/,
+        className: /(^|\s)work_a(\s|$)/
+      },
+      pullUpLoad: pullUp?{threshold: 200}: false
+    });
+    pageScroll.on('pullingUp', () => {
+      getData().then(res => {
+        if (res) {
+          pageScroll.finishPullUp();
+          pageScroll.refresh();          
+        } else {
+          pageScroll.closePullUp();
+        }
+      });
+    })
+  }, []);
   return (
     <div>
       <Header changeMenu={changeMenu} />
-      <Menu showMenu={showMenu} />
+      <Menu showMenu={showMenu} menuHide={menuHide} />
       <div
         id="main"
         onTouchStart={menuHide}

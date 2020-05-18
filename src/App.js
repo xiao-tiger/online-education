@@ -10,9 +10,9 @@ import "./common/css/common.css";
 function App() {
   return (
     <BrowserRouter>
-      <Frame>
+      {/* <Frame> */}
         <IndexRoute />
-      </Frame>
+      {/* </Frame> */}
     </BrowserRouter>
   );
 }

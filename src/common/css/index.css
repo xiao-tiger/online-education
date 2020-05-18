@@ -179,6 +179,17 @@
   font: 0.45333333rem / 0.93333333rem pingfang;
   color: #fff;
 }
+.register_vip button {
+  width: 4rem;
+  height: 0.93333333rem;
+  padding: 0 0.13333333rem 0.16rem 0;
+  background: url(../images/once.png) no-repeat;
+  background-size: 100% auto;
+  border: none;
+  box-sizing: content-box;
+  font: 0.45333333rem / 0.93333333rem pingfang;
+  color: #fff;
+}
 .characteristic {
   background: #a5d677;
 }
