@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
+import {NavLink} from 'react-router-dom';
+
 
 
 function Menu(props) {
   let {showMenu} = props;
   return (
     <nav id="menu" style={{transform: `translateX(${showMenu?0:-4.5}rem)`}}>
-      <a className="iconfont icon-home" href="/">首页</a>
-      <a className="iconfont icon-kecheng" href="/course">课程安排</a>
-      <a className="iconfont icon-peixunjiangshi" href="/lecturer">讲师团队</a>
+      <NavLink className="iconfont icon-home" to="/">首页</NavLink>
+      <NavLink className="iconfont icon-kecheng" to="/course">课程安排</NavLink>
+      <NavLink className="iconfont icon-peixunjiangshi" to="/lecturer">讲师团队</NavLink>
     </nav>
   )
 }
+
 
 export default Menu;
