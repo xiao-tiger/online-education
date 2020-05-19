@@ -19,11 +19,11 @@ function Lecturer() {
     return state.lecturers.data;
   });
   useEffect(() => {
-    dispatch(getLeturers())
+    dispatch(getLeturers());
   }, []);
 
   function showAlert(data) {
-    setAlertData(data)
+    setAlertData(data);
     setShow(true);
   }
   function hideAlert() {

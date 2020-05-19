@@ -19,7 +19,7 @@ function Course(props) {
           </thead>
           <tbody>
             <tr>
-              <td className="week1" rowspan="2">周一</td>
+              <td className="week1" rowSpan="2">周一</td>
               <td className="center">上午</td>
               <td className="content_td">前端代码初识</td>
             </tr>
@@ -28,7 +28,7 @@ function Course(props) {
               <td className="content_td">基本属性：背景，边框</td>
             </tr>
             <tr>
-              <td className="week2" rowspan="2">周二</td>
+              <td className="week2" rowSpan="2">周二</td>
               <td className="center">上午</td>
               <td className="content_td">H5标签与css选择器</td>
             </tr>
@@ -37,7 +37,7 @@ function Course(props) {
               <td className="content_td">练习题</td>
             </tr>
             <tr>
-              <td className="week3" rowspan="2">周三</td>
+              <td className="week3" rowSpan="2">周三</td>
               <td className="center">上午</td>
               <td className="content_td">浮动的深度剖析</td>
             </tr>
@@ -46,7 +46,7 @@ function Course(props) {
               <td className="content_td">定位进阶</td>
             </tr>
             <tr>
-              <td className="week4" rowspan="2">周四</td>
+              <td className="week4" rowSpan="2">周四</td>
               <td className="center">上午</td>
               <td className="content_td">表单详解</td>
             </tr>
@@ -61,7 +61,7 @@ function Course(props) {
             </tr>
             <tr className="single">
               <td className="center week6">周末</td>
-              <td className="center" colspan="2">合理安排自己的时间，记得做联系哦！</td>
+              <td className="center" colSpan="2">合理安排自己的时间，记得做联系哦！</td>
             </tr>
           </tbody>
         </table>

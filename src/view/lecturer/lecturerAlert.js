@@ -12,7 +12,12 @@ function LecturerAlert(props) {
   }, []);
  
   return (
-    <aside className="elastic">
+    <aside
+      className="elastic"
+      onTouchStart={(e) => {
+        // 阻止冒泡
+        e.stopPropagation();
+    }}>
       <div className="elastic_box">
           <span
             className="close" 
