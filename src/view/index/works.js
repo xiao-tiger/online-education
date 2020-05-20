@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 function Works(props) {
@@ -11,16 +12,17 @@ function Works(props) {
           data.map((item, index) => {
             return (
               <li key={item.id}>
-                <a href="#">
-                  <img src={item.icon} />
-                  <span className="wrork_txt clearfix">
-                    <strong>{item.title}</strong>
-                    <span>
-                      <em>{item.message}</em>
-                      <em>{item.good}</em>
+                <Link to={'/work/' + item.id}>
+                  <img src={item.icon} className="work_a" />
+                  {/* 添加className是为了阻止better-scroll的默认行为 */}
+                  <span className="wrork_txt clearfix work_a">
+                    <strong className="work_a">{item.title}</strong>
+                    <span className="work_a">
+                      <em className="work_a">{item.message}</em>
+                      <em className="work_a">{item.good}</em>
                     </span>
                   </span>
-                </a>
+                </Link>
               </li>
             )
           })

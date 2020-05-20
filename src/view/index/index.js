@@ -11,7 +11,7 @@ import Works from './works';
 import getWorks from '../../store/action/getWorks'
 import '../../common/css/common.css';
 import '../../common/css/index.css';
-import { Agent } from 'http';
+
 
 let imgData = [
   require("../../common/images/tab/img1.png"),
