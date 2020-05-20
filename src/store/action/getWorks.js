@@ -1,12 +1,14 @@
 import http from './http';
 
 
-function getWorks(page) {
-  return function(dispatch) {
+function getWorks() {
+  return function(dispatch, getState) {
     // 正在加载
     dispatch({
       type: 'LOAD'
-    })
+    });
+    let works = getState().works;
+    let {page} = works;
     return http.post(`/lecturer/lists?page=${page}&rows=8`, {
       order: 'desc',
       sort: 'sort',

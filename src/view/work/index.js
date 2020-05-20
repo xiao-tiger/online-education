@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import getWork from '../../store/action/getWork';
 import Frame from '../../common/component/Frame';
 import Skeleton from '../../common/component/Skeleton';
-import Tab from '../../common/component/Tab';
+import Main from './main';
 
 import '../../common/css/miiaov.css';
 
@@ -26,23 +26,15 @@ function Work(props) {
       });
     }
   }, []);
-  console.log(state);
   let {data, loading} = state;
   return (
     <div>
       <Frame>
         {
-          loading? <Skeleton />: (
-            <div className="workDetails">
-              <Tab 
-                data={data.image_path.map(item=>item.path)}
-                render={(data) => {
-                  return (<img src={data} />)
-                }}
-              />
-            </div>
-    
-          )
+          loading? <Skeleton />: 
+          <Main
+            data={data}
+          />
         }
       </Frame>
       

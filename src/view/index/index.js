@@ -21,14 +21,13 @@ let imgData = [
 ];
 
 function Index() {
-  let [page, setPage] = useState(1);
+  // let [page, setPage] = useState(1);
   let dispatch = useDispatch();
 
   // 函数不需要接收page参数，内部函数会自动调取全局的page
   function getWorksData() {
-    let p = dispatch(getWorks(page));
-    console.log(page);
-    setPage(++page);
+    let p = dispatch(getWorks());
+    // setPage(++page);
     return p
   }
   useEffect(() => {
