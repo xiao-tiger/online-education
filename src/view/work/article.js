@@ -5,7 +5,6 @@ function Article(props) {
   let {data} = props;
   
   return (
-    <div className="miiaov_box">
       <article className="miiaov_article">
         <h3>
           <span>{data.title}</span>
@@ -18,7 +17,6 @@ function Article(props) {
           ></div>
         </div>
       </article>
-    </div>
   )
 }
 

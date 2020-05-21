@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useReducer} from 'react';
+import React, {useEffect, useRef} from 'react';
 
 
 function Join() {
