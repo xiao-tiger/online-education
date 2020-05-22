@@ -2,13 +2,19 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 import getMessageList from '../../store/action/getMessageList';
-
+import ToDate from '../../common/component/toDate';
 
 function MessageList(props) {
   let {id} = props;
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMessageList(id));
+
+    return () => {
+      dispatch({
+        type: 'MESSAGE_RESET'
+      });
+    }
   }, []);
 
   let data = useSelector(state => {
@@ -28,14 +34,15 @@ function MessageList(props) {
               </div>
               <div className="comment_txt">{item.content}</div>
                 <div className="comment_footer">
-                  <time>17分钟前</time>
+                  <time>
+                    <ToDate time={item.create_time} />
+                  </time>
                   <button>编辑</button>
                 </div>
             </li>
           )
         })
       }
-
     </ul>
   )
 }
