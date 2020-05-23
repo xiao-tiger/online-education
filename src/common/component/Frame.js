@@ -10,7 +10,7 @@ import {useInnerHeight} from '../../common/hook/index'
 function Frame(props) {
   let [showMenu, setShowMenu] = useState(false);
   let inneH = useInnerHeight();
-  let pageScroll = null;
+  // let pageScroll = null;
   let {pullUp, getData} = props;
 
   function changeMenu() {
@@ -22,7 +22,7 @@ function Frame(props) {
 
   let wrap = useRef(null);
   useEffect(() => {
-    pageScroll = new BScroll(wrap.current, {
+    window.pageScroll = new BScroll(wrap.current, {
       // better-scroll默认禁止了一些标签的默认行为
       preventDefaultException: {
         tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/,
@@ -30,16 +30,20 @@ function Frame(props) {
       },
       pullUpLoad: pullUp?{threshold: 200}: false
     });
-    pageScroll.on('pullingUp', () => {
+    window.pageScroll.on('pullingUp', () => {
       getData().then(res => {
         if (res) {
-          pageScroll.finishPullUp();
-          pageScroll.refresh();          
+          window.pageScroll.finishPullUp();
+          window.pageScroll.refresh();          
         } else {
-          pageScroll.closePullUp();
+          window.pageScroll.closePullUp();
         }
       });
-    })
+    });
+
+    return () => {
+      window.pageScroll = null; 
+    }
   }, []);
   return (
     <div>

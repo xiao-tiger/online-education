@@ -6,9 +6,26 @@ import MessageList from './messageList';
 
 
 function Main(props) {
-  let {data} = props;
+  let {data, setShow} = props;
+  let point = {};
   return (
-    <div className="workDetails">
+    <div className="workDetails"
+      onTouchStart={(e)=>{
+        let touch = e.changedTouches[0];
+        point.x = touch.pageX;
+        point.y = touch.pageY;
+      }}
+      onTouchEnd={(e)=>{
+        let touch = e.changedTouches[0];
+        let nowPoint = {
+          x: touch.pageX,
+          y: touch.pageY
+        };
+        if(Math.abs(nowPoint.x - point.x) < 5 && Math.abs(nowPoint.y - point.y) < 5 ){
+          console.log('jaha');
+          setShow(false);
+        }
+      }}>
       <Tab 
         data={data.image_path.map(item=>item.path)}
         render={(data) => {

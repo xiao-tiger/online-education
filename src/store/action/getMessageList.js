@@ -9,7 +9,7 @@ function getMessageList(id) {
     });
 
     let {page} = getState().messageList;
-    http.post(`/lecturer/getcomment?page=${page}&rows=10`, {
+    return http.post(`/lecturer/getcomment?page=${page}&rows=10`, {
       article_id: id
     })
     .then(res => {

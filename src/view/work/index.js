@@ -7,6 +7,7 @@ import Frame from '../../common/component/Frame';
 import Skeleton from '../../common/component/Skeleton';
 import Main from './main';
 import Message from './message';
+import getMessageList from '../../store/action/getMessageList';
 
 import '../../common/css/miiaov.css';
 
@@ -37,14 +38,21 @@ function Work(props) {
       });
     }
   }, []);
+  function getMessageData(){
+    return dispatch(getMessageList(id));
+  }
   let {data, loading} = state;
   return (
     <div>
-      <Frame>
+      <Frame
+        pullUp={true}
+        getData={getMessageData}
+      >
         {
           loading? <Skeleton />: 
           <Main
             data={data}
+            setShow={setShow}
           />
         }
       </Frame>
@@ -54,7 +62,7 @@ function Work(props) {
           if (user) {
             setShow(true);
           } else {
-            history.push('.login');
+            history.push('/login');
           }
         }}
       >回复本贴</footer>

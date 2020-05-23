@@ -20,8 +20,7 @@ function MessageList(props) {
   let data = useSelector(state => {
     return state.messageList;
   });
-  console.log(data);
-
+  
   let {messageList} = data;
   return (
     <ul className="comment_list">
